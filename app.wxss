@@ -1,10 +1,27 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+@import "./styles/iconfont.wxss";
+/* 
+微信小程序中 不支持通配符
+*/
+
+/* 
+border-box定义的盒子，不会随着padding和boder的加入而增大盒子的占用空间
+*/
+page,view,text,swiper,swiper-item,image,navigator{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 
+主题颜色，通过变量来实现
+
+less中存在这个变量知识 
+原生的css wxss 也是支持变量的
+*/
+page{
+    /* 定义主题颜色 */
+    --themeColor:#eb4450;
+    /* 同一文字的大小 1px=2rpx*/
+    font-size: 28rpx;
+}
