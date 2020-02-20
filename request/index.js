@@ -6,11 +6,17 @@
 // 多个异步等待合并便于解决
 
 export const request=(params)=>{
+//    定义公共的url 
+const baseUrl="https://api.zbztb.cn/api/public/v1";
+
+
     return new Promise((resolve,reject)=>{
         var reqTask = wx.request({
             ...params,
+            url:baseUrl+params.url,
             success:(result)=>{
-                resolve(result);
+                // result等于成功返回的值 注意这里可以统一配置 
+                resolve(result.data.message);
             },
             fail:(err)=>{
                 reject(err);

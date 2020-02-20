@@ -24,22 +24,22 @@ Page({
   getFloorList(){
 
     request({
-      url: "https://api.zbztb.cn/api/public/v1/home/floordata"
+      url: "/home/floordata"
     }).then(result => {
       console.log(result)
       this.setData({
-        floorList: result.data.message
+        floorList: result
       })
     })
   },
 
   getCateList() {
     request({
-      url: "https://api.zbztb.cn/api/public/v1/home/catitems"
+      url: "/home/catitems"
     }).then(result => {
       console.log(result)
       this.setData({
-        catesList: result.data.message
+        catesList: result
       })
     })
   },
@@ -68,12 +68,12 @@ Page({
     // }); 
 
     request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
+      url: '/home/swiperdata',
 
     }).then(result => {
       console.log(result)
       this.setData({
-        swiperList: result.data.message
+        swiperList: result
       })
     })
   },

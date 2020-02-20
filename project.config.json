@@ -9,10 +9,18 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.1",
+	"libVersion": "2.0.4",
 	"appid": "wx5ba9a921f84132ef",
 	"projectname": "SMShopping",
 	"debugOptions": {
@@ -56,6 +64,14 @@
 					"id": -1,
 					"name": "fenlei",
 					"pathName": "pages/category/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "列表",
+					"pathName": "pages/goods_list/index",
+					"query": "cid=5",
 					"scene": null
 				}
 			]

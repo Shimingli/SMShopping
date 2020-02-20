@@ -9,8 +9,12 @@ page{
     .cates_container{
         // 要减去原来的搜索框的高度 
         // 在less中使用calc的时候 ~'calc(100vh-90rpx)';
-        height: ~'calc( 100vh- 90rpx)';
-         display: flex;
+        // height: calc(~'100 vh- 90rpx');
+        // vh就是当前屏幕可见高度的1%，也就是说  height:100vh == height:100%
+        // calc() 函数属于CSS3版本内容，用于动态计算长度值。例如：width: calc(100% - 10px)；
+        // 需要注意的是，运算符前后都需要保留一个空格  这尼玛肯定 坑死我了
+        height: calc(100vh - 90rpx);
+        display: flex;
         .left_menu{
            flex: 2;
         //   子项的高度是 100%

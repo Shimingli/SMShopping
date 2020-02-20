@@ -12,3 +12,18 @@
 
 * 阿里巴巴字体库 ：https://www.iconfont.cn/  使用github登陆
 
+
+* 可能在某些久的小程序 可能出现问题哦 
+* 小程序支持es7的async语法。号称是解决回调的最终的解决方法
+1、https://github.com/facebook/regenerator  
+
+https://github.com/facebook/regenerator/blob/master/packages/regenerator-runtime/runtime.js
+
+
+2、copy上面链接的代码 放到runtime.js 文件中
+
+3、在每一个需要使用async语法的页面js文件中，都引入（不能全局引用）
+`import regeneratorRuntime from "../../lib/runtime/runtime"; `
+
+
+
