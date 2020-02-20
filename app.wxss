@@ -13,6 +13,7 @@ page,view,text,swiper,swiper-item,image,navigator{
     box-sizing: border-box;
 }
 
+
 /* 
 主题颜色，通过变量来实现
 
@@ -24,4 +25,9 @@ page{
     --themeColor:#eb4450;
     /* 同一文字的大小 1px=2rpx*/
     font-size: 28rpx;
+}
+
+/* 图片的宽度100% */
+image{
+    width: 100%
 }

@@ -12,3 +12,75 @@
      }
    }
 }
+.index_cate{
+  //每一份都是一个伸缩盒子
+  display: flex;
+  navigator{
+    // 每一个沾一份
+    flex: 1;
+    padding: 20rpx;
+    image{
+      // 父元素多宽 我也多款
+      width: 100%;
+    }
+  }
+
+}
+// 不能够偷懒去掉 .号 如果是自定义的样式，就必须加上.号 
+.index_floor{
+
+  .floor_group{
+    .floor_title{
+      // padding后面只有两个值 说明上下边距是10 左右为0
+      padding: 10rpx 0;
+      image{
+        width: 100%;    
+      }
+    }
+    .floor_list{
+      // 清除浮动 
+      // overflow 属性规定当内容溢出元素框时发生的事情 hidden会被修建，内容看不到了
+      // scroll  内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。
+      //  visible 内容不会被修建，在边框外也看的到 
+overflow: hidden;
+
+      navigator{
+        // float 属性定义元素在哪个方向浮动 
+        // 假如在一行之上只有极少的空间可供浮动元素，那么这个元素会跳至下一行，这个过程会持续到某一行拥有足够的空间为止。
+        float: left;
+        width: 33.33%;
+
+        padding-left: 10rpx;
+
+        //后4个超链接  后几个就 -n+几
+        &:nth-last-child(-n+4){
+          // 原图的宽高 232*386 
+          // 232/386 =33.33vw/未知的高度
+          // 第一张图片的高度 
+          // height: 33.33vw*386/232; 
+          // 后四张的图片的高度就是在除以2
+          height: 33.33vw*386/232/2; 
+          // 给后4张图片加上左边框
+          border-left: 10rpx solid #ffffff;
+
+        }
+        //给 第二张 和第三张图片加下边框 
+        &:nth-child(2),
+        &:nth-child(3){
+          border-bottom: 10rpx solid #ffffff;
+        }
+
+        image{
+          // 宽度继承
+           width: 100%;
+          //  高度继承
+          height: 100%;
+        }
+      }
+    }
+  }
+
+
+
+
+}
