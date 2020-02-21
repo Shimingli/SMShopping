@@ -5,19 +5,26 @@
   <block wx:if="{{tabs[0].isActive}}">
       <!-- 第一个页 -->
        <view class="first_tab">
-         <navigator class="goods_item">
+         <navigator class="goods_item"
+         wx:for="{{goodsList}}"
+         wx:key="goods_id"
+         url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+         >
          <!-- 左边是图片  -->
           <view class="goods_img_wrap">
-           <image mode="widthFix" src="http://157.122.54.189:9087/pyg/banner1.png"></image>
+          <!-- 如果判断一下图片的路径，如果路径不正确的，或者是没有路径的话
+          那么就是需要给个默认图片
+           -->
+           <image mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'http://image5.suning.cn/uimg/b2c/newcatentries/0000000000-000000000160455569_1_400x400.jpg'}}"></image>
           </view>
            
         <!-- 右边是商品详情 -->
             <view class="goods_info_wrap">
             <view class="goods_name">
-              商品名称
+             {{item.goods_name}}
             </view>
             <view class="goods_price">
-            3999
+            ￥{{item.goods_price}}
             </view>
             </view>
 

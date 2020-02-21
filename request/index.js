@@ -5,23 +5,49 @@
 // 代码风格，容易理解，便于维护
 // 多个异步等待合并便于解决
 
-export const request=(params)=>{
-//    定义公共的url 
-const baseUrl="https://api.zbztb.cn/api/public/v1";
+// 同时发送异步代码的次数 
+let ajaxTimes=0;
+
+export const request = (params) => {
+    // 每次请求的时候加上1
+    ajaxTimes++;
+    // 显示加载中的图标 
+    //  当页面中有好多的url没有先后顺序的请求的话，如何实现呢 
+    wx.showLoading({
+        title: " 加载中",
+        // 模板，挡住了 不能进行其他的操作
+        mask: true
+    });
 
 
-    return new Promise((resolve,reject)=>{
+    //    定义公共的url 
+    const baseUrl = "https://api.zbztb.cn/api/public/v1";
+
+
+    return new Promise((resolve, reject) => {
         var reqTask = wx.request({
             ...params,
-            url:baseUrl+params.url,
-            success:(result)=>{
+            url: baseUrl + params.url,
+            success: (result) => {
                 // result等于成功返回的值 注意这里可以统一配置 
                 resolve(result.data.message);
             },
-            fail:(err)=>{
+            fail: (err) => {
                 reject(err);
+            },
+            complete: () => {
+
+                ajaxTimes--;
+               if(ajaxTimes==0){
+                wx.hideLoading();
+               }
+      
+                // // 多久关闭 
+                // setTimeout(function () {
+           
+                // }, 5000)
             }
         });
-          
+
     });
 }

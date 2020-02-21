@@ -1,2 +1,54 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="detail_swiper">
+    <swiper autoplay="{{true}}" circular="{{true}}" indicator-dots="{{true}}">
+        <swiper-item data-url="{{item.pics_mid}}" bind:tap="handlePreviewImage" wx:for="{{goodsObj.pics}}" wx:key="pics_id">
+            <!-- 图片记得花括号呀 -->
+            <image mode="widthFix" src="{{item.pics_mid}}" />
+        </swiper-item>
+    </swiper>
+</view>
+<view class="goods_price">{{goodsObj.goods_price}}</view>
+<view class="goods_name_row">
+    <view class="goods_name">{{goodsObj.goods_name}}</view>
+    <!-- 收藏 -->
+    <view class="goods_collect">
+        <!-- 这里使用的是阿里巴巴免费的图标库 -->
+        <text class="iconfont icon-shoucang"></text>
+        <view class="collect_text">收藏</view>
+    </view>
+</view>
+<view class="goods_info">
+    <view class="goods_info_title">图文详情</view>
+    <!-- 内容是一个富文本哦 -->
+    <view class="goods_info_content">
+        <!-- 富文本 -->
+        <rich-text class="" nodes="{{goodsObj.goods_introduce}}"></rich-text>
+    </view>
+</view>
+<view class="btm_tool">
+     
+    <!-- 换成按钮的话 有更多的样式 所以搞个障眼法 -->
+    <view class="tool_item">
+        <view class="iconfont icon-kefu"></view>
+        <view>客服</view>
+        <!-- 按钮的障眼法  -->
+        <button open-type="contact"></button>
+    </view>
+    <view class="tool_item">
+        <view class="iconfont icon-yixianshi-"></view>
+        <view>分享</view>
+        <button open-type="share"></button>
+    </view>
+    <!-- 跳转不了购物车 ?
+    记不记得超链接知识  
+    购物车页面是一个tab页面 所以你跳转不了 
+    默认是 navigate 违法了
+    这里需要用sswitchTab 关闭其他的页面 跳转到tab页面
+    -->
+    <navigator open-type="switchTab" url="/pages/cart/index" class="tool_item">
+        <view class="iconfont icon-gouwuche"></view>
+        <view>购物车</view>
+    </navigator>
+    <!-- tool_item 和 btn_cart 是同层级的哦 -->
+    <view bind:tap="handleAddCart" class="tool_item btn_cart">假如购物车</view>
+    <view class="tool_item btn_buy">立即购买</view>
+</view>

@@ -13,7 +13,7 @@
 * 阿里巴巴字体库 ：https://www.iconfont.cn/  使用github登陆
 
 
-* 可能在某些久的小程序 可能出现问题哦 
+* 可能在某些久的小程序 可能出现问题哦 这个引入的时候估计要等待一下，关闭模拟器试下 真的啃爹哦
 * 小程序支持es7的async语法。号称是解决回调的最终的解决方法
 1、https://github.com/facebook/regenerator  
 

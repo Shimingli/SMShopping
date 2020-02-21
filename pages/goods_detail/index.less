@@ -1,0 +1,141 @@
+// 为什么需要 90rpx 因为这是最外层的容器，
+// 然后呢 布局给撑上去了 
+page{
+    padding-bottom: 90rpx;
+}
+.detail_swiper{
+    swiper{
+        // 设置一个段落的高度和宽度
+        height: 70vw;
+        background-color: red;
+        //中间显示  h1, h2, 和 h3元素设置文本的对齐方式
+        text-align: center;
+        image{
+            width: 60%;
+        }
+    }
+}
+.goods_price{
+  padding: 15rpx;
+  font-size: 32rpx;
+//  定义文字的font-weight 属性设置文本的粗细 
+// 如果是数字的话 400等于normal ，700等同于 bold 最大限制900
+  font-weight: 900;
+  color:var(--themeColor);
+}
+
+.goods_name_row{
+    display: flex;
+    border-top: 5rpx solid red;
+    border-bottom: 5rpx solid #000;
+    padding: 10rpx 0;
+    // 文字的第二行出现省略符号 
+    .goods_name{
+        flex: 5;
+        color: #000;
+        font-size: 30rpx;
+        padding: 0 10rpx;
+        //box 
+        display:-webkit-box;
+        // 超出部分隐藏
+        overflow: hidden;
+        //方向为垂直的方向
+        -webkit-box-orient: vertical;
+        // 最多两行 就出现省略符号 
+        -webkit-line-clamp:2; 
+    }
+    .goods_collect{
+        flex: 1;
+        display: flex;
+        // flex-direction 属性规定灵活项目的方向 column 列的方向
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-left: 1rpx solid #000;
+        .collect_text{
+
+        }
+    }
+}
+.goods_info{
+    .goods_info_title{
+        font-size: 32rpx;
+        color: var(--themeColor);
+        font-weight: 900;
+        padding: 20rpx;
+    }
+    .goods_info_content{
+
+    }
+}
+.btm_tool{
+    border-top: 1rpx solid red;
+    // 生成固定位置 fixed 代表相当于窗口定位
+    position: fixed;
+    // 靠左边0
+    left: 0;
+    // 靠下0
+    bottom: 0;
+    width: 100%;
+    height: 90rpx;
+    background-color: #fff;
+    display: flex;
+
+    .tool_item{
+        flex: 1;
+        display: flex;
+        // 方向上下
+        // 一列的展示
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        font-size: 20rpx;
+        // 在联系客服的时候有个button 
+        // 相当于父元素的 生成相对定位的元素，相对于其正常位置进行定位
+
+        position: relative;
+        button{
+            // 生成绝对定位的元素，
+            // 相对于 static 定位以外的第一个父元素进行定位。
+
+// 元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
+            position: absolute;
+            // 距离top 0
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            // 透明度 从 0到1 完全透明和完全不透明
+            opacity: 0;
+        }
+      
+    }
+    .btn_cart{
+             flex: 2;
+             display: flex;
+             // 方向上下
+             // 一列的展示
+             flex-direction: column;
+             justify-content: center;
+             align-items: center; 
+             background-color: #ffa500;
+             color: #fff;
+             font-size: 30rpx;
+             font-weight: 900;
+    }
+    
+    .btn_buy{
+        flex: 2;
+        display: flex;
+        // 方向上下
+        // 一列的展示
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        background-color: #f00;
+        color: #fff;
+        font-size: 30rpx;
+        font-weight: 900;
+
+    }
+}
