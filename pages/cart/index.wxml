@@ -1,8 +1,29 @@
 <view class="revice_address_row">
-    <view class="address_btn">
+
+<!-- 当收货地址存在不显示按钮  
+注意 空对象的bool类型是true 所以判断一个对象是否为空
+就判断里面的值 是不是为空
+  -->
+    <view class="address_btn" wx:if="{{!address.userName}}" >
         <!-- plain 
         按钮是否镂空，背景色透明
         -->
-        <button type="primary" plain="{{true}}">获取收货地址</button>
+        <button bind:tap="handleAddAddress" type="primary" plain="{{true}}">获取收货地址</button>
+    </view>
+
+    <!-- 当收货地址存在 详细信息就显示 -->
+
+    <view wx:else class="user_info_row">
+      <view class="user_info">
+      <view >{{address.userName}}</view> 
+      <!-- 如果优化这一块代码，可以放大js中去
+      address.provinceName+address.cityName+address.countyName+address.detailInfo
+       -->
+      <view >{{address.allAddress}}</view> 
+      </view>
+
+      <view class="user_phone">
+       {{address.telNumber}}
+      </view>
     </view>
 </view>
