@@ -1,2 +1,6 @@
 <!--pages/auth/index.wxml-->
-<text>pages/auth/index.wxml</text>
+<view class="auth">
+    <!-- getUserInfo	
+    获取用户信息，可以从bindgetuserinfo回调中获取到用户信息 -->
+  <button type="primary" plain="{{true}}" bindgetuserinfo="handleGetuserinfo" open-type="getUserInfo">授权</button>
+</view>

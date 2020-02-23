@@ -50,6 +50,8 @@ Page({
     if(index===-1){
       // 不存在数据 
       this.GoodsInfo.num=1;
+      // 增加购物车是否选中的标记
+      this.GoodsInfo.checked=true;
       // 添加进去 把数据
       cart.push(this.GoodsInfo);
     }else{
