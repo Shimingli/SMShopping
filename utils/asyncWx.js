@@ -128,6 +128,24 @@ export const login=()=>{
             complete: ()=>{}
         });
        })
-         
+        
+}
 
+
+// 微信支付 传入的是一个对象
+export const requestPayment=(pay)=>{
+
+    return new Promise((resolve,reject)=>{
+        wx.requestPayment({
+          ...pay,
+            success: (result)=>{
+                resolve(result)
+            },
+            fail: (err)=>{
+                reject(err)
+            },
+            complete: ()=>{}
+        });
+       })
+        
 }

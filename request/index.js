@@ -7,8 +7,19 @@
 
 // 同时发送异步代码的次数 
 let ajaxTimes=0;
-
+// 自己判断是否需要加上请求头 
 export const request = (params) => {
+    
+    // 判断url中是否带有 /my/ 是否带上header 和token
+    // 能够冲外面传递header的其他的信息，而不是写实了的 
+    let header={...params.header};
+    // 判断是否需要带上请求头，特殊的url
+    if(params.url.includes("/my/")){
+        // 拼接header 带上token
+        header["Authorzation"]=wx.getStorageSync("token"); 
+    }
+
+
     // 每次请求的时候加上1
     ajaxTimes++;
     // 显示加载中的图标 
@@ -27,6 +38,8 @@ export const request = (params) => {
     return new Promise((resolve, reject) => {
         var reqTask = wx.request({
             ...params,
+            // 上面定义的header 
+            header,
             url: baseUrl + params.url,
             success: (result) => {
                 // result等于成功返回的值 注意这里可以统一配置 

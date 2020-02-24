@@ -1,2 +1,2 @@
-<!--pages/login/index.wxml-->
-<text>pages/login/index.wxml</text>
+<!-- etUserInfo	获取用户信息，可以从bindgetuserinfo回调中获取到用户信息 -->
+<button type="primary" plain="{{true}}" open-type="getUserInfo" bindgetuserinfo="handleGetuserinfo">登陆</button>

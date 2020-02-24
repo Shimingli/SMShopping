@@ -1,2 +1,86 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<!-- 上半部分 -->
+<view class="user_info_wrap">
+   <!-- 如果有缓存的信息的话，就显示 -->
+   <view wx:if="{{userInfo.avatarUrl}}" class="user_img_wrap">
+      <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user_info">
+         <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
+         <view class="user_name">{{userInfo.nickName}}</view>
+      </view>
+   </view>
+   <!-- 没有的话 显示这个 -->
+   <view wx:else class="user_btn">
+      <navigator url="/pages">登录</navigator>
+   </view>
+</view>
+<!-- 下班部分 -->
+<view class="user_content">
+   <view class="user_main">
+      <!-- 历史的足迹 -->
+      <view class="history_wrap">
+         <navigator>
+            <view class="his_num">0</view>
+            <view class="his_name">收藏的店铺</view>
+         </navigator>
+         <navigator>
+            <view class="his_num">0</view>
+            <view class="his_name">收藏的商品</view>
+         </navigator>
+         <navigator>
+            <view class="his_num">0</view>
+            <view class="his_name">关注的商品</view>
+         </navigator>
+         <navigator>
+            <view class="his_num">0</view>
+            <view class="his_name">我的足迹</view>
+         </navigator>
+      </view>
+      <!-- 我的订单 -->
+      <view class="orders_wrap">
+         <view class="orders_title">我的订单</view>
+         <view class="order_content">
+            <navigator>
+               <view class="iconfont icon-ding_dan"></view>
+               <view class="order_name">全部订单</view>
+            </navigator>
+            <navigator>
+               <view class="iconfont icon-fukuantongzhi"></view>
+               <view class="order_name">代收款</view>
+            </navigator>
+            <navigator>
+               <view class="iconfont icon-receipt-address"></view>
+               <view class="order_name">待收货</view>
+            </navigator>
+            <navigator>
+               <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
+               <view class="order_name">退款/退货</view>
+            </navigator>
+         </view>
+      </view>
+
+      <!-- 收货地址 -->
+      <view class="address_wrap">
+         收货地址的管理
+      </view>
+      <!-- 引用信息相关的 -->
+      <view class="app_info_wrap">
+
+          <view class="app_info_item cantact">
+
+            <text > 联系客服</text>
+             <text >15018531365</text>
+            
+          </view>
+
+          <view class="app_info_item">意见反馈</view>
+          <view class="app_info_item">
+             关于我们
+          </view>
+      </view>
+
+      <!-- 推荐 -->
+      <view class="recommend_wrap">
+         把应用推荐给其他人
+      </view>
+   </view>
+</view>

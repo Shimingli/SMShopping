@@ -1,8 +1,8 @@
 
-import { getSetting, chooseAddress, openSetting,showModal,shwoToast } from "../../utils/asyncWx.js";
+import { requestPayment,getSetting, chooseAddress, openSetting,showModal,shwoToast } from "../../utils/asyncWx.js";
 // 想要使用es7的报错语法的话，还必须引入包
 import regeneratorRuntime from "../../lib/runtime/runtime";
-
+import {request} from "../../request/index.js";
 // 微信支付的问题 
 // 那些账号可以实现微信支付 ？
 // 1.企业账号 2、企业账号的小程序后台中 还要给开发者添加上白名单
@@ -51,7 +51,9 @@ Page({
   async handleOrder(){
     // 判断缓存中是否有token
     const token=wx.getStorageSync("token");
+  
     if(!token){
+      console.log("永远获取不到token")
       wx.navigateTo({
         url: '/pages/auth/index',
         success: (result) => {
@@ -63,6 +65,54 @@ Page({
     }else{
       return;
     }
+    // 有token的时候 就创建订单，创建订单的准备的参数 
+// 赋值订单项里面的值 
+
+    const header={Authoriztion:token};
+    const order_price=this.data.totalPrice;
+    const consignee_addr=this.data.address.all;
+    const cart=this.data.cart;
+    
+    let goods=[];
+    cart.forEach(v=>goods.push({
+      goods_id:v.goods_id,
+      goods_num:v.num,
+      goods_price:v.goods_price
+    }))
+    const orderParams={order_price,consignee_addr,goods};
+    //获取订单编号
+    const {order_number} =await request({url:"/my/orders/create",method:"POST",data:orderParams,header:header});
+    // 获取调用微信支付的参数
+    const res=await request({url:"....",method:"POST",header,data:{order_number}});
+    await shwoToast({title:"支付成功"});
+    // 过滤掉购物车的数据 
+    let newCart=wx.getStorageSync("cart");
+    newCart=newCart.filter(v=>!v.checked);
+    wx.setStorageSync("cart",data);
+
+    // 跳转到订单列表页面
+    wx.navigateTo({
+      url: '/pages/order/index',
+      success: (result) => {
+        
+      },
+      fail: () => {},
+      complete: () => {}
+    });
+      
+
+    wx.requestPayment({
+      timeStamp: '',
+      nonceStr: '',
+      package: '',
+      signType: '',
+      paySign: '',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
 
   // 方法的抽取，设置购物车的状态和底部工具栏的数据 

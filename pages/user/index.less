@@ -1,0 +1,140 @@
+/* pages/user/index.wxss */
+page{
+    background-color: #ccc;
+
+}
+
+.user_info_wrap{
+// vh就是当前屏幕可见高度的1%，也就是说
+// height:100vh == height:100%;
+    height: 45vh;
+    background-color: var(--themeColor);
+    position: relative;
+    .user_img_wrap{
+        // 生成相对定位的元素
+        position: relative;
+        .user_bg{
+            height: 45vh;
+            // 高斯模糊 
+            // 给图像设置高斯模糊。"radius"一值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起， 所以值越大越模糊；
+            filter: blur(10rpx);
+        }
+        // 个人信息的布局
+        .user_info{
+            // 生成绝对定位的元素
+            // 生成一个绝对定位的元素 
+            // 这个布局的位置有 left top bottom right决定
+
+            position: absolute;
+            // 右移动了50%
+            left: 50%;
+            // 距离头部的是20%
+            top: 20%;
+    
+            text-align: center;
+            //  那么控件还要平移控件的50%
+            transform: translateX(-50%);
+            .user_icon{
+              width: 150rpx;
+              height: 150rpx;
+            //   给div元素添加圆角的边框
+              border-radius: 50%;
+            }
+            .user_name{
+                color: red;
+                font-size: 40rpx;
+                margin-top: 40rpx;
+            }
+        }
+    }
+    // 如果没有登录的话，这里就显示的
+    // 我想把这个按钮显示在一个布局中间
+    // 记住这种的做法哈    position: absolute;   和这个  position: relative;
+    .user_btn{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%);
+        border: 1rpx solid greenyellow;
+        color: greenyellow;
+        font-size: 30rpx;
+        padding: 30rpx;
+        border-radius: 10rpx;
+        
+    }
+}
+
+.user_content{
+    position: relative;
+    color: #666;
+  
+    .user_main{
+        padding-bottom: 100rpx;
+        position: absolute;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -40rpx;
+        .history_wrap{
+            background-color: #fff;
+            display: flex;
+            navigator{
+                flex: 1;
+                text-align: center;
+                padding: 10rpx 0;
+                .his_num{
+                  color: var(--themeColor);
+                }
+                .his_name{
+
+                }
+            }
+        }
+        .orders_wrap{
+            background-color: #fff;
+            margin-top: 30rpx;
+            .orders_title{
+                padding: 20rpx;
+                border-bottom: 1rpx solid #ccc;
+                }
+            }
+            .order_content{
+                display: flex;
+                navigator{
+                    padding: 20rpx 0;
+                    flex: 1;
+                    text-align: center;
+                    .iconfont{
+                        color: var(--themeColor);
+                        font-size: 40rpx
+                    }
+                    .order_name{
+                       
+                    }
+                }
+        }
+        .address_wrap{ 
+             margin-top: 30rpx;
+             background-color: #fff;
+             padding: 20rpx ;
+        }
+        .app_info_wrap{
+            margin-top: 30rpx;
+             background-color: rebeccapurple;
+             .app_info_item{
+                 padding: 20rpx;
+                 border-bottom: 1rpx solid #cccccc;
+             }
+             .cantact{
+                 display: flex;
+                 justify-content: space-between;
+             }
+        }
+        .recommend_wrap{
+            margin-top: 30rpx;
+            background-color: #fff;
+            padding: 20rpx ;
+        }
+        
+    }
+}

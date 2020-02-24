@@ -5,14 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
+     userInfo:{
 
+     }
+  },
+  // 检查方法是不是多了 44
+  onShow(){
+     console.log("我执行了");
+     const userInfo=wx.getStorageSync("userInfo");
+     console.log(userInfo);
+
+     this.setData({
+       userInfo
+     }) 
+
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("onLoad我执行了");
+    const userInfo=wx.getStorageSync("userInfo");
+    console.log(userInfo);
 
+    this.setData({
+      userInfo
+    }) 
   },
 
   /**
@@ -22,12 +42,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
