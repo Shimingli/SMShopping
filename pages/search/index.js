@@ -1,66 +1,71 @@
 // pages/search/index.js
+import { request } from "../../request/index.js";
+// es 7的网络请求 
+import regeneratorRuntime from "../../lib/runtime/runtime";
+
+/**
+ * input的值的改变的事件  
+ * 获取输入框的值 
+ * 合法性判断 检验通过
+ */
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    goods: [],
+   
+    // 按钮显示
+    isFocus: false,
+    inputValue:""
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  TimeID: -1,
+  // 输入框的值改变了 
+  // 每个输入框的变化了 都会重新输入哦 
+  // 防止抖动 输入稳定以后 才能访问网络 
+  // 关键就是 TimeID 这个变量
+  // 防抖：用在输入框上面
+  // 节流：用在页面的下拉或者下拉
+  handleInput(e) {
+    console.log(e)
+    const { value } = e.detail;
+    //  去掉前后空格
+    if (!value.trim()) {
+      this.setData({
+        isFocus: false,
+        goods: []
+      })
+      //值不合法 
+      return;
+    }
+
+    this.setData({
+      isFocus: true
+    })
+    //  this.TimeID该值标识要取消的延迟执行代码块
+    clearTimeout(this.TimeID);
+    this.TimeID = setTimeout(() => {
+      //  这里网络请求 
+      this.qswarch(value);
+    }, 1000)
+    console.log("定时器：" + this.TimeID)
+
 
   },
+  async qswarch(query) {
+    const res = await request({ url: "/goods/qsearch", data: { query } });
+    console.log(res);
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+    this.setData({
+      goods: res
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  cancle(){
+    this.setData({
+      inputValue:"",
+      isFocus:false,
+      goods:[]
+    })
   }
+
 })

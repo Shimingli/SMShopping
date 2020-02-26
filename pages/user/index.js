@@ -7,7 +7,8 @@ Page({
   data: {
      userInfo:{
 
-     }
+     },
+     collectNums:0
   },
   // 检查方法是不是多了 44
   onShow(){
@@ -15,8 +16,10 @@ Page({
      const userInfo=wx.getStorageSync("userInfo");
      console.log(userInfo);
 
+     const collect= wx.getStorageSync("collect")||[];
      this.setData({
-       userInfo
+       userInfo,
+       collectNums:collect.length,
      }) 
 
   

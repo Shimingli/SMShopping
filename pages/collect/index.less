@@ -1,0 +1,68 @@
+/* pages/collect/index.wxss */
+page{
+    // background-color: #f3f4f6;
+}
+.collect_main{
+    background-color: #f3f4f6;
+    .collect_title{
+        padding: 40rpx 0;
+        margin-top: 15rpx;
+        .collect_tips{
+            padding: 15rpx;
+            border: 1rpx solid #cccccc;
+            margin-left: 20rpx;
+            background-color: #fff;
+        }
+        .active{
+            color: darkgreen;
+            border-color: red
+        }
+    }
+    .collect_content{
+        .goods_item{
+            display: flex;
+            background-color: #fff;
+            border-bottom: 1rpx solid #000;
+            .goods_img_wrap{
+                flex: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+              image{
+               width: 70%;
+              }
+            }
+             .goods_info_wrap{
+                 display: flex;
+                //  规定里面元素的排列样式 
+                // flex-direction 属性规定灵活项目的方向
+                // 按照顺序 一个个列的展示 
+                 flex-direction: column;
+                //  在弹性盒对象的 <div> 元素中的各项周围留有空白
+                //就是一个元素的周围都留有白边
+                 justify-content: flex-start;
+    
+                flex: 3;
+                // https://blog.csdn.net/liang377122210/article/details/71473212?utm_source=distribute.pc_relevant.none-task
+                 .goods_name{
+                    //  下面4个联合在一起使用 
+                    // 定义为盒子显示
+                    display: -webkit-box;
+                    //  overflow属性指定如果内容溢出一个元素的框 
+                    // 超出部分就隐藏
+                    overflow: hidden;
+                    // 定义为竖向显示
+                    -webkit-box-orient: vertical;
+                    // 限制一个块元素显示的文本行数
+                    -webkit-line-clamp:2;
+                 }
+                 .goods_price{
+                    color: var(--themeColor);
+                    font-size: 50rpx;
+                 }
+             }  
+    
+        }
+    }
+}

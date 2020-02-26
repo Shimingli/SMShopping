@@ -1,0 +1,52 @@
+page{
+    background-color: #dedede;
+    padding: 20rpx;
+}
+
+.search_row{
+    height: 90rpx;
+    display: flex;
+
+    input{
+       flex: 1;
+       height: 100%;
+       width: 100%;
+       background-color: #fff;
+       padding-left: 30rpx;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+    button{
+        // 去掉默认的padding
+        padding: 0;
+        width: 110rpx;
+        height: 100%;
+        font-size: 28rpx;
+        margin:0 10rpx ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20rpx;
+    }
+    
+}
+// 注意样式文件要放在正确的地方呀 
+.search_content{
+    .search_item{
+       background-color: white;
+       font-size: 26rpx;
+       padding: 15rpx 10rpx;
+       border-bottom: 1rpx solid #ccc;
+       margin-top: 30rpx;
+
+    //    一行显示文本
+      overflow: hidden;
+      //规定段落中的文本不进行换行
+      white-space: nowrap;
+    //   text-overflow属性指定当文本溢出包含它的元素，应该发生什么
+    // 显示省略符号来代表被修剪的文本
+      text-overflow: ellipsis;
+    }
+   }
+ 

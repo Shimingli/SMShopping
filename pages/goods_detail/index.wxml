@@ -10,9 +10,9 @@
 <view class="goods_name_row">
     <view class="goods_name">{{goodsObj.goods_name}}</view>
     <!-- 收藏 -->
-    <view class="goods_collect">
+    <view class="goods_collect" bind:tap="handleCollect">
         <!-- 这里使用的是阿里巴巴免费的图标库 -->
-        <text class="iconfont icon-shoucang"></text>
+        <text class="iconfont {{isCollect?'icon-shoucang1':'icon-shoucang'}}"></text>
         <view class="collect_text">收藏</view>
     </view>
 </view>
