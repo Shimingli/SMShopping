@@ -1,0 +1,74 @@
+/* pages/feedback/index.wxss */
+page{
+    background-color: #ccc;
+}
+
+.fb_main{
+    padding: 20rpx;
+    color: #666;
+    .fb_titlerpx{
+
+    }
+    .fb_tips{
+        display: flex;
+        // 让弹性盒元素在必要的时候拆行
+        // 规定灵活的项目在必要的时候拆行或拆列
+        flex-wrap: wrap;
+        text{
+            width: 30%;
+            padding: 10rpx;
+            text-align: center;
+            background-color: #fff;
+            margin: 20rpx 10rpx;
+        }
+    }
+    .fb_content{
+        margin-top: 20rpx;
+       background-color: #fff;    
+       textarea{
+           padding: 10rpx;
+       } 
+       
+    }
+    .fb_tool{
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 30rpx;
+        button{
+            margin: 0rpx;
+          width: 90rpx;
+          height: 90rpx;
+          padding: 0;
+          margin-left: 20rpx;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 60rpx;
+          color: #ccc;
+          margin-top: 20rpx;
+        }
+        .up_img_item{
+   
+            margin-left: 20rpx;
+            margin-top: 20rpx;
+        }
+    }
+    .form_btn_wrap{
+       margin-top: 20rpx;
+       display: flex;
+    //   内容靠右边
+       justify-content: flex-end;
+       text-align: center;
+       button{
+           width: 30%;
+        // 有些默认的样式 有问题的话 就设置为0
+           margin: 0;
+           padding: 0;
+       }
+       icon{
+         text-align: center;
+         justify-content: center;
+         align-items: center;
+       }
+    }
+}

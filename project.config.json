@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -134,6 +134,13 @@
 					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/search/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投诉",
+					"pathName": "pages/feedback/index",
 					"scene": null
 				}
 			]

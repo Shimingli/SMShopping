@@ -66,13 +66,11 @@
       <view class="app_info_wrap">
 
           <view class="app_info_item cantact">
-
             <text > 联系客服</text>
              <text >15018531365</text>
-            
           </view>
 
-          <view class="app_info_item">意见反馈</view>
+          <navigator url="/pages/feedback/index"  class="app_info_item">意见反馈</navigator>
           <view class="app_info_item">
              关于我们
           </view>

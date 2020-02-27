@@ -56,8 +56,10 @@ Page({
    */
   onLoad: function (options) {
     // 获取上个页面传递的参数 options 里面 
-
-    this.QueryParams.cid = options.cid;
+    this.QueryParams.cid = options.cid||"";
+    // 有可能在上个页面传递过来的
+  
+    this.QueryParams.query = options.query||"";
     this.getGoodsList();
 
     // 把这个抽取的到网络框架中去  抽取才是最好的 

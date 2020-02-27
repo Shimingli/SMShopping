@@ -31,8 +31,10 @@ export const request = (params) => {
     });
 
 
-    //    定义公共的url 
-    const baseUrl = "https://api.zbztb.cn/api/public/v1";
+    //    定义公共的url   
+    // const baseUrl = "https://api.zbztb.cn/api/public/v1";
+
+    const baseUrl = "https://api-hmugo-web.itheima.net/api/public/v1";
 
 
     return new Promise((resolve, reject) => {

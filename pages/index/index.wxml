@@ -18,14 +18,21 @@
    基本上都是一起使用的 -->
     <swiper autoplay="{{true}}" indicator-dots="{{true}}" circular="{{true}}">
       <swiper-item class="" item-id="" wx:for="{{swiperList}}" wx:key="goods_id">
-        <navigator>
+        <navigator url="{{item.navigator_url}}">
           <image mode="widthFix" src="{{item.image_src}}"></image>
         </navigator>
       </swiper-item>
     </swiper>
   </view>
+  <!-- 导航 要加上 switchTab-->
   <view class="index_cate">
-    <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate" wx:for="{{catesList}}" wx:key="name">
+    <navigator 
+    url="/pages/category/index"
+     
+    hover-class="navigator-hover" 
+    open-type="switchTab"
+     wx:for="{{catesList}}" 
+     wx:key="name">
       <image mode="widthFix" src="{{item.image_src}}"></image>
     </navigator>
   </view>
@@ -41,7 +48,12 @@
       </view>
       <!-- 内容 -->
       <view class="floor_list">
-        <navigator wx:for="{{item1.product_list}}" wx:for-index="index2" wx:for-item="item2" wx:key="name" class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
+        <navigator 
+        url="{{item2.navigator_url}}"
+        wx:for="{{item1.product_list}}"
+         wx:for-index="index2" wx:for-item="item2" 
+         wx:key="name"  hover-class="navigator-hover" 
+         open-type="navigate">
         
         <!-- 这里不能自适应图片 所以widthFix不能使用，理解下 为什么 -->
       <!-- 
