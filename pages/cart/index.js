@@ -56,15 +56,29 @@ Page({
       return;
    }
   //  跳转到支付的页面
-   wx.navigateTo({
-     url: '/pages/pay/index',
-     success: (result) => {
+ 
+  //  wx.navigateTo({
+  //    url: '/pages/pay/index',
+  //    success: (result) => {
        
-     },
-     fail: () => {},
-     complete: () => {}
-   });
-     
+  //    },
+  //    fail: () => {},
+  //    complete: () => {}
+  //  });
+  wx.showToast({
+    title: '个人开发者没有支付权限，流程通了',
+    icon: 'none',
+    image: '',
+    duration: 1500,
+    mask: false,
+    success: (result)=>{
+      
+    },
+    fail: ()=>{},
+    complete: ()=>{}
+  });
+
+
   },
 
 

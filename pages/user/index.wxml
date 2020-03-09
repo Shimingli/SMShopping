@@ -10,7 +10,7 @@
    </view>
    <!-- 没有的话 显示这个 -->
    <view wx:else class="user_btn">
-      <navigator url="/pages">登录</navigator>
+      <navigator url="/pages/login/index">登录</navigator>
    </view>
 </view>
 <!-- 下班部分 -->

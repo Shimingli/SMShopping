@@ -26,13 +26,8 @@
   </view>
   <!-- 导航 要加上 switchTab-->
   <view class="index_cate">
-    <navigator 
-    url="/pages/category/index"
-     
-    hover-class="navigator-hover" 
-    open-type="switchTab"
-     wx:for="{{catesList}}" 
-     wx:key="name">
+    <navigator url="/pages/category/index" hover-class="navigator-hover" open-type="switchTab" wx:for="{{catesList}}"
+      wx:key="name">
       <image mode="widthFix" src="{{item.image_src}}"></image>
     </navigator>
   </view>
@@ -48,21 +43,31 @@
       </view>
       <!-- 内容 -->
       <view class="floor_list">
-        <navigator 
-        url="{{item2.navigator_url}}"
-        wx:for="{{item1.product_list}}"
-         wx:for-index="index2" wx:for-item="item2" 
-         wx:key="name"  hover-class="navigator-hover" 
-         open-type="navigate">
-        
-        <!-- 这里不能自适应图片 所以widthFix不能使用，理解下 为什么 -->
-      <!-- 
+
+
+
+        <view bind:tap="handleURl" wx:for="{{item1.product_list}}" wx:for-index="index2" data-url="{{item2.navigator_url}}"
+          wx:for-item="item2" wx:key="name" hover-class="navigator-hover" open-type="navigate">
+
+          <image mode="{{index2===0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}" />
+        </view>
+
+<!-- 
+
+        <navigator url="{{item2.navigator_url}}" wx:for="{{item1.product_list}}" wx:for-index="index2"
+          wx:for-item="item2" wx:key="name" hover-class="navigator-hover" open-type="navigate">
+
+           这里不能自适应图片 所以widthFix不能使用，理解下 为什么 -->
+          <!-- 
         当第一张图片是高度适应 使用widthFix
         scaleToFill其余的图片是将图片的内容拉伸到图片的高度
 
-       -->
-      <image mode="{{index2===0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}" />
-        </navigator>
+       
+        <image mode="{{index2===0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}" />
+        </navigator> --> 
+
+
+
       </view>
     </view>
   </view>

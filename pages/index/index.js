@@ -10,7 +10,7 @@ Page({
     // 导航
     catesList: [],
 
-    floorList:[],
+    floorList: [],
 
   },
   //网络请求
@@ -20,8 +20,63 @@ Page({
     this.getCateList();
     this.getFloorList();
 
+
+
+    // VM2154:1 navigateTo:fail url "pages/goods_list?query=%E6%9C%8D%E9%A5%B0" is not in app.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   },
-  getFloorList(){
+
+  handleURl(e) {
+
+    console.log(e)
+    const { url } = e.currentTarget.dataset;
+    console.log(url)
+    try {
+      const arr= url.split("?");
+      const newUrl=arr[0]+"/index?"+arr[1];
+      wx.navigateTo({
+        url: newUrl,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+    } catch (error) {
+      wx.showToast({
+        title: '我在闹矛盾哦',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+    }
+
+
+
+
+
+  },
+  getFloorList() {
 
     request({
       url: "/home/floordata"
@@ -77,32 +132,5 @@ Page({
       })
     })
   },
-  onReady: function () {
 
-  },
-  onShow: function () {
-
-  },
-  onHide: function () {
-
-  },
-  onUnload: function () {
-
-  },
-  onPullDownRefresh: function () {
-
-  },
-  onReachBottom: function () {
-
-  },
-  onShareAppMessage: function () {
-
-  },
-  onPageScroll: function () {
-
-  },
-  //item(index,pagePath,text)
-  onTabItemTap: function (item) {
-
-  }
 });
